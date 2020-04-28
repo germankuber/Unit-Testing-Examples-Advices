@@ -12,7 +12,6 @@ namespace ExamplesAdvices.Tests
         [Fact]
         public void Return_True_User_Logged_Successfully()
         {
-            //TODO : 03 - Utilizo Builder
             var sut = new UserControllerBuilder()
                 .WithUserService(new UserServices(new EmailService()))
                 .Build();
@@ -29,7 +28,6 @@ namespace ExamplesAdvices.Tests
         [Fact]
         public void Return_False_User_Does_Not_Logged_Successfully()
         {
-            //TODO : 02 - Utilizo Builder
             var sut = new UserControllerBuilder()
                 .WithRealServices(new UserServices(new EmailService()), new ReverseEncryption())
                 .Build();
@@ -60,6 +58,23 @@ namespace ExamplesAdvices.Tests
 
         }
 
+        [Fact]
+        public void Call_UserService()
+        {
+            var builder = new UserControllerBuilder();
+            var sut = builder
+                .Build();
+
+            var user = new UserProfileBuilder()
+                .Build();
+
+            var result = sut.Login(user);
+
+            //TODO: 03 - Verifico que userService fue llamado
+            builder.UserService.Verify(x=>x.Login(user));
+
+
+        }
         public void Dispose()
         {
             //Clean Code
