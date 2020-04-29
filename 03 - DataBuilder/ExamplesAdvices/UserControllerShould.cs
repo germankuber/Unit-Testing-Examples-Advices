@@ -32,8 +32,7 @@ namespace ExamplesAdvices.Tests
         {
             var sut = CreateSutWithRealDependencies();
 
-            var user = new UserProfileBuilder()
-                .Build();
+            UserProfile user = new UserProfileBuilder();
 
             var result = sut.Login(user);
 
@@ -47,15 +46,14 @@ namespace ExamplesAdvices.Tests
             var sut = CreateSutWithRealDependencies();
 
             //TODO : 02 - Contruyo con el builder
-            var userTest = new UserProfileBuilder()
-                .WithPassword("Password")
-                .WithPasswordRepeated("Other Password")
-                .Build();
+            //var userTest = new UserProfileBuilder()
+            //    .WithPassword("Password")
+            //    .WithPasswordRepeated("Other Password")
+            //    .Build();
 
             //TODO: 03 - Implemento métodos helper
-            //var userTest = new UserProfileBuilder()
-            //                                .WithNonMatchingPasswords()
-            //                                .Build();
+            var userTest = new UserProfileBuilder()
+                                            .WithNonMatchingPasswords();
 
             var result = sut.Login(userTest);
 
@@ -69,8 +67,7 @@ namespace ExamplesAdvices.Tests
 
             //TODO : 04 Implicit 
             UserProfile user = new UserProfileBuilder()
-                .WithFirstName(string.Empty)
-                .WithoutNames();
+                                .WithoutNames();
                 
 
             var result = sut.Login(user);

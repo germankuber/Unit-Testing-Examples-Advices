@@ -71,7 +71,7 @@ namespace ExamplesAdvices.Tests
             var result = sut.Login(user);
 
             //TODO: 03 - Verifico que userService fue llamado
-            builder.UserService.Verify(x=>x.Login(user));
+            builder.UserService.Verify(x => x.Login(user));
 
 
         }

@@ -26,6 +26,10 @@ namespace ExamplesAdvices.Tests
                 password: "Password",
                 rePassword: "Password");
         }
+
+
+
+
         [Fact]
         public void Return_True_User_Logged_Successfully()
         {
@@ -37,6 +41,9 @@ namespace ExamplesAdvices.Tests
             result.Should().BeTrue();
 
         }
+
+
+
 
         [Fact]
         public void Return_False_User_Does_Not_Logged_Successfully()
@@ -50,6 +57,8 @@ namespace ExamplesAdvices.Tests
             result.Should().BeFalse();
 
         }
+
+
         [Fact]
         public void Return_False_User_Does_Not_Logged_Does_Not_Have_FirstName_LastName()
         {
